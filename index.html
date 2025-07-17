@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>URBEX HUNTERS</title>
+  
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto+Condensed&display=swap" rel="stylesheet" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+</head>
+<body>
+  <div class="overlay">
+    <h1>URBEX HUNTERS</h1>
+    <p>
+      Мы исследуем забытые и заброшенные места, фиксируя дух времени, тишину и красоту упадка. Добро пожаловать в мир руин, где каждый шаг — это история.
+    </p>
+
+    <div class="contacts">
+      <a href="https://t.me/+FwnW9YGL8pQwYzQ0" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-telegram-plane"></i>Telegram
+      </a>
+      <a href="https://www.instagram.com/urbex_hunters_lodz" target="_blank" rel="noopener noreferrer" title="Профиль приватный, фото доступны только подписчикам">
+        <i class="fab fa-instagram"></i>Instagram
+      </a>
+    </div>
+
+    <!-- Галерея -->
+    <section class="gallery-section">
+      <h2>Наша галерея</h2>
+      <div class="gallery">
+  <!-- Ранее добавленные изображения... -->
+
+  <!-- Фото с Marlboro -->
+  <a href="images/marlboro.jpeg" data-lightbox="urbex" data-title="Граффити Marlboro">
+    <img src="images/marlboro.jpeg" alt="Граффити Marlboro" />
+  </a>
+
+  <!-- Заброшенное здание -->
+  <a href="images/building.jpeg" data-lightbox="urbex" data-title="Заброшенное здание в Лодзи">
+    <img src="images/building.jpeg" alt="Заброшенное здание в Лодзи" />
+  </a>
+</div>
+
+    </section>
+
+    <!-- Модальное окно для полноразмерного фото -->
+    <div id="lightbox" class="lightbox hidden">
+      <span class="close">&times;</span>
+      <img class="lightbox-img" src="" alt="Полноразмерное фото" />
+    </div>
+
+    <!-- Отзывы -->
+    <section class="reviews-section">
+      <h2>Отзывы нашей команды</h2>
+      <div class="reviews">
+        <blockquote class="review">«Каждая экспедиция — это приключение, открывающее новые тайны заброшенных мест.»</blockquote>
+        <blockquote class="review">«Люблю атмосферу заброшенных зданий — это как путешествие во времени.»</blockquote>
+        <blockquote class="review">«URBEX HUNTERS — команда, которая понимает дух приключений и поиска.»</blockquote>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Лайтбокс
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.querySelector('.lightbox-img');
+    const closeBtn = document.querySelector('.close');
+
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightbox.classList.remove('hidden');
+        lightboxImg.src = img.dataset.full;
+        lightboxImg.alt = img.alt;
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      lightbox.classList.add('hidden');
+      lightboxImg.src = '';
+      lightboxImg.alt = '';
+    });
+
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) {
+        lightbox.classList.add('hidden');
+        lightboxImg.src = '';
+        lightboxImg.alt = '';
+      }
+    });
+
+    // Анимация отзывов
+    const reviews = document.querySelectorAll('.review');
+    let index = 0;
+
+    function showReview(i) {
+      reviews.forEach((rev, idx) => {
+        rev.style.opacity = idx === i ? '1' : '0';
+        rev.style.transform = idx === i ? 'translateY(0)' : 'translateY(20px)';
+      });
+    }
+
+    showReview(index);
+
+    setInterval(() => {
+      index = (index + 1) % reviews.length;
+      showReview(index);
+    }, 4000);
+  </script>
+</body>
+</html>
