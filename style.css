@@ -63,37 +63,7 @@ p {
   text-shadow: 0 0 10px #ffa3a3cc;
 }
 
-/* Галерея */
-.gallery-section h2 {
-  font-family: 'Anton', sans-serif;
-  font-size: 2.8rem;
-  margin-bottom: 25px;
-  color: #ff3333;
-  text-shadow: 0 0 8px #ff3333cc;
-}
 
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
-}
-
-.gallery img {
-  width: 150px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 6px;
-  box-shadow: 0 0 8px #ff3333cc;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  user-select: none;
-}
-
-.gallery img:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 18px #ff6666cc;
-}
 
 /* Лайтбокс */
 .lightbox {
